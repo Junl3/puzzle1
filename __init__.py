@@ -9,6 +9,7 @@ __author__ = 'SiYu Wu <wu.siyu@hotmail.com>'
 
 import smbus
 import time
+import sys
 
 name = 'i2clcd'
 
@@ -231,3 +232,10 @@ def print_long_text(self, text):
             
 #tenemos que incluir nuestra funcion a la libreria
 i2clcd.print_long_text = print_long_text
+
+def leerYPrintea(self):
+    print("Introduce lo que quieras printear en el LCD: ")
+    for line_num in range(4):
+        line= sys.stdin.readline().strip()
+        self.print_line(line,line_num)
+i2clcd.leerYPrintea= leerYPrintea
